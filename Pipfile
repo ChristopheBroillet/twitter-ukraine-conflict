@@ -11,6 +11,7 @@ networkx = "*"
 jupyter = "*"
 python-dotenv = "*"
 tweepy = "*"
+pexpect = "*"
 
 [dev-packages]
 
