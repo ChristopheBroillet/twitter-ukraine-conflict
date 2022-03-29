@@ -127,3 +127,12 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# .env
+.env.local
+
+# edgelist folder
+edgelists
+
+# source data
+*.gzip
