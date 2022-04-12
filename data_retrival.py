@@ -75,7 +75,7 @@ for idx, file in enumerate(Path("csvdataframes").iterdir()):
 
 # get_retweeters from 1 id and 1 pagination token
 def get_retweeters(id, pagination_token=None):
-    print(".", end="")
+    print(".", end="", flush=True)
     retweeters = client.get_retweeters(id, pagination_token=pagination_token)
     next_token = retweeters.meta.get("next_token")
 
@@ -100,7 +100,7 @@ def get_all_retweeters(id):
 
 
 def get_linkin_users(id, pagination_token=None):
-    print(".", end="")
+    print(".", end="", flush=True)
     retweeters = client.get_liking_users(id, pagination_token=pagination_token)
     next_token = retweeters.meta.get("next_token")
 
