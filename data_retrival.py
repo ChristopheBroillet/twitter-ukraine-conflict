@@ -127,7 +127,7 @@ def create_retweeters_edgelist():
     # read csv files from csvdataframes_wOgIds folder
     for idx, file in enumerate(Path("csvdataframes_wOgIds").iterdir()):
         # create empty edgelists df with column retweeter_id and tweet_id
-        edgelists_df = pd.DataFrame(columns=["retweeter_id", "author_id"])
+        edgelists_df = pd.DataFrame(columns=["user_id", "author_id"])
         print(file)
         df = pd.read_csv(file)
 
@@ -135,7 +135,7 @@ def create_retweeters_edgelist():
             print(tweetId, end="")
             retweeter_ids = get_all_retweeters(tweetId)
             # convert to df
-            retweeter_ids_df = pd.DataFrame(retweeter_ids, columns=["retweeter_id"])
+            retweeter_ids_df = pd.DataFrame(retweeter_ids, columns=["user_id"])
             # add tweetId to df
             retweeter_ids_df.insert(1, "author_id", author_id)
             # concat edgelists_df and retweeter_ids_df
@@ -155,14 +155,14 @@ def create_liking_edgelist():
     # read csv files from csvdataframes_wOgIds folder
     for idx, file in enumerate(Path("csvdataframes_wOgIds").iterdir()):
         # create empty edgelists df with column liker_id and tweet_id
-        edgelists_df = pd.DataFrame(columns=["liker_id", "author_id"])
+        edgelists_df = pd.DataFrame(columns=["user_id", "author_id"])
         print(file)
         df = pd.read_csv(file)
         for tweetId, author_id in zip(df["original_tweet_id"], df["author_id"]):
             print(tweetId, end="")
             liker_ids = get_all_linkin_users(tweetId)
             # convert to df
-            liker_ids_df = pd.DataFrame(liker_ids, columns=["liker_id"])
+            liker_ids_df = pd.DataFrame(liker_ids, columns=["user_id"])
             # add tweetId to df
             liker_ids_df.insert(1, "author_id", author_id)
             # concat edgelists_df and liker_ids_df
