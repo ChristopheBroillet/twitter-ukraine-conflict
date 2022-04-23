@@ -7,7 +7,7 @@ import pandas as pd
 import time
 from dotenv import load_dotenv
 load_dotenv("./.env.local")
-BEARER_TOKEN = os.getenv("BEARER_TOKEN")
+BEARER_TOKEN = os.getenv("BEARER_TOKEN1")
 # https://docs.tweepy.org/en/stable/client.html
 client = tweepy.Client(BEARER_TOKEN, wait_on_rate_limit=True)
 
@@ -152,7 +152,7 @@ for idx, day in enumerate(Path("dataset").iterdir()):
     df_en_filteted = df_en[["userid", "tweetid", "text", "hashtags"]]
     df_no_duplicate = df_en_filteted.drop_duplicates(
         subset='text', keep='first')
-    df_sampled = df_no_duplicate.sample(2)
+    df_sampled = df_no_duplicate.sample(10000)
     df_sampled.to_csv(Path("csvdataframes") / f"day_{idx}.csv")
     print(".", end='', flush=True)
 
