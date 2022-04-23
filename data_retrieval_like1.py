@@ -156,28 +156,28 @@ Path.mkdir(plots_path, exist_ok=True)
 #     df_sampled.to_csv(Path("csvdataframes") / f"day_{idx}.csv")
 #     print(".", end='', flush=True)
 
-# By batch of 100 Tweets, get the original Tweet ID
-for idx, file in enumerate(Path("csvdataframes").iterdir()):
-    print(file)
-    df = pd.read_csv(file)
-    # temp df to store original tweet ids
-    temp_df = pd.DataFrame()
-    # split df by 100
-    for i in range(0, len(df), 100):
-        print(f"{file} Iteration {i}-{i+100} / {len(df)}")
-        df_100 = df[i:i+100]
-        original_tweet_ids_df, empty_check = get_original_tweets_ids(df_100)
-        if not empty_check:
-            continue
-        # concat temp_df and original_tweet_ids_df
-        temp_df = pd.concat(
-            [temp_df, original_tweet_ids_df], ignore_index=True)
-    # Merge temp_df with df
-    if temp_df.empty:
-        continue
-    df = pd.merge(df, temp_df, on="Unnamed: 0")
-    # save df to csv
-    df.to_csv(Path(f"csvdataframes_wOgIds/day_{idx}.csv"), index=False)
+# # By batch of 100 Tweets, get the original Tweet ID
+# for idx, file in enumerate(Path("csvdataframes").iterdir()):
+#     print(file)
+#     df = pd.read_csv(file)
+#     # temp df to store original tweet ids
+#     temp_df = pd.DataFrame()
+#     # split df by 100
+#     for i in range(0, len(df), 100):
+#         print(f"{file} Iteration {i}-{i+100} / {len(df)}")
+#         df_100 = df[i:i+100]
+#         original_tweet_ids_df, empty_check = get_original_tweets_ids(df_100)
+#         if not empty_check:
+#             continue
+#         # concat temp_df and original_tweet_ids_df
+#         temp_df = pd.concat(
+#             [temp_df, original_tweet_ids_df], ignore_index=True)
+#     # Merge temp_df with df
+#     if temp_df.empty:
+#         continue
+#     df = pd.merge(df, temp_df, on="Unnamed: 0")
+#     # save df to csv
+#     df.to_csv(Path(f"csvdataframes_wOgIds/day_{idx}.csv"), index=False)
 
 
 # create_retweeters_edgelist()
