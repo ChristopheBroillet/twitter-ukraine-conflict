@@ -145,16 +145,16 @@ Path.mkdir(Path("csvdataframes_wOgIds"), exist_ok=True)
 plots_path = Path("graphs")
 Path.mkdir(plots_path, exist_ok=True)
 
-print("Preprocessing the data")
-for idx, day in enumerate(Path("dataset").iterdir()):
-    full_dataset = pd.read_csv(day, compression='gzip')
-    df_en = full_dataset[full_dataset['language'] == 'en']
-    df_en_filteted = df_en[["userid", "tweetid", "text", "hashtags"]]
-    df_no_duplicate = df_en_filteted.drop_duplicates(
-        subset='text', keep='first')
-    df_sampled = df_no_duplicate.sample(10000)
-    df_sampled.to_csv(Path("csvdataframes") / f"day_{idx}.csv")
-    print(".", end='', flush=True)
+# print("Preprocessing the data")
+# for idx, day in enumerate(Path("dataset").iterdir()):
+#     full_dataset = pd.read_csv(day, compression='gzip')
+#     df_en = full_dataset[full_dataset['language'] == 'en']
+#     df_en_filteted = df_en[["userid", "tweetid", "text", "hashtags"]]
+#     df_no_duplicate = df_en_filteted.drop_duplicates(
+#         subset='text', keep='first')
+#     df_sampled = df_no_duplicate.sample(10000)
+#     df_sampled.to_csv(Path("csvdataframes") / f"day_{idx}.csv")
+#     print(".", end='', flush=True)
 
 # By batch of 100 Tweets, get the original Tweet ID
 for idx, file in enumerate(Path("csvdataframes").iterdir()):
