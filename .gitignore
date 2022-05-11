@@ -3,6 +3,7 @@
 # csvdataframes/
 # csvdataframes_wOgIds/
 .vscode
+test_louvain.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

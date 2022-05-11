@@ -12,6 +12,8 @@ jupyter = "*"
 python-dotenv = "*"
 tweepy = "*"
 pexpect = "*"
+numba = "*"
+tqdm = "*"
 
 [dev-packages]
 black = "*"
