@@ -5,15 +5,14 @@ name = "pypi"
 
 [packages]
 matplotlib = "*"
-seaborn = "*"
 pandas = "*"
 networkx = "*"
 jupyter = "*"
 python-dotenv = "*"
 tweepy = "*"
 pexpect = "*"
-numba = "*"
 tqdm = "*"
+numpy = "*"
 
 [dev-packages]
 black = "*"
