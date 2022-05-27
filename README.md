@@ -3,4 +3,5 @@ This repository contains a project made during the Spring Semester 2022 at the U
 
 The *Pipfile* and *Pipfile.lock* files are given to reproduce the experiments and run the code. One can install all needed dependencies by using the `pipenv install` command inside the repository directory.
 
-To run the *Jupyter Notebooks*, the command `pipenv run jupyter notebook` can then be used.
+To run the *Jupyter Notebooks*, the command `pipenv run jupyter notebook` can then be used.<br>
+**N.B.** Due to Twitter API rate download restrictions, the notebook 1 took a long time to run (i.e. approx. 1 week for the complete data gathering).
