@@ -3,7 +3,9 @@
 # csvdataframes/
 # csvdataframes_wOgIds/
 .vscode
-test_louvain.py
+edgelistsFull/
+analysis/
+edgelistsSample/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
